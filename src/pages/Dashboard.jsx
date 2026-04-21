@@ -1,23 +1,44 @@
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
-import Card from "../components/Card"
-import ActionMenu from "../components/ActionMenu"
+/**
+ * Dashboard.jsx
+ *
+ * ACCESSIBLE BY DESIGN:
+ * - Single <h1> for the page
+ * - Sections are logically grouped
+ *
+ * INTENTIONAL A11Y ISSUES:
+ * - Some cards are clickable <div>s
+ * - Chart lacks accessible description
+ */
+
+import MainLayout from "../components/layout/MainLayout";
+import KpiCard from "../components/dashboard/KpiCard";
+import Chart from "../components/dashboard/Chart";
+import RecentActions from "../components/dashboard/RecentActions";
 
 export default function Dashboard() {
   return (
-    <>
-      <Header />
-      <div className="layout">
-        <Sidebar />
-        <div className="content">
-          <h2>Overview</h2>
-          <Card title="Users" value="1240" />
-          <Card title="Sessions" value="9800" />
-          <ActionMenu />
-        </div>
-      </div>
-    </>
-  )
-}
+    <MainLayout>
+      <h1>User Analytics Dashboard</h1>
 
-//no <main>, no headings structure, no landmarks, no aria-roles
+      <section>
+        <h2>Key metrics</h2>
+
+        <div style={{ display: "flex", gap: "16px" }}>
+          <KpiCard title="Active users" value="1,248" />
+          <KpiCard title="Monthly revenue" value="$12,400" />
+          <KpiCard title="Errors reported" value="32" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Traffic overview</h2>
+        <Chart />
+      </section>
+
+      <section>
+        <h2>Recent actions</h2>
+        <RecentActions />
+      </section>
+    </MainLayout>
+  );
+}

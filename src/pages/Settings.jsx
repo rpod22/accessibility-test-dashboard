@@ -1,22 +1,17 @@
-import Header from "../components/Header"
+/**
+ * DESIGN: * Settings.jsx
+ * - Clear heading structure
+ * - Uses SettingsForm component
+ */
+
+import MainLayout from "../components/layout/MainLayout";
+import SettingsForm from "../components/forms/SettingsForm";
 
 export default function Settings() {
   return (
-    <>
-      <Header />
-      <div style={{ padding: "24px" }}>
-        <div>
-          <input type="checkbox" />
-          Enable notifications
-        </div>
-
-        <div>
-          <input type="checkbox" />
-          Dark mode
-        </div>
-      </div>
-    </>
-  )
+    <MainLayout>
+      <h1>Settings</h1>
+      <SettingsForm />
+    </MainLayout>
+  );
 }
-
-//no labels for checkboxes, no fieldset/legend, no aria-roles, no landmarks, no headers
