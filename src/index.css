@@ -112,13 +112,14 @@ h1 {
 
 h2 {
   font-size: 20px;
-  margin-top: 32px;
   margin-bottom: 12px;
+  margin-top: 10px;
 }
 
 h3 {
   font-size: 16px;
   margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 /* =========================
@@ -243,6 +244,48 @@ button:hover {
   border-radius: 4px;
 }
 
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+  border: #000 solid 1px;
+  width: max-content;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  box-shadow: 1px 8px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  border: #000 solid 1px;
+} 
+
+.actionSubmit {
+  margin-left: 8px;
+  padding: 10px 14px;
+  background-color: #4a90e2;
+  border: none;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actionSubmit:hover {
+  background-color: #357bd8;
+}
 /* =========================
    FOOTER
 ========================= */

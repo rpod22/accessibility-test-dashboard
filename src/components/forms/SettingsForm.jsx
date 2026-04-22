@@ -35,12 +35,13 @@ export default function SettingsForm() {
         <br />
 
         {/*  Accessible error handling */}
-        <div role="alert" style={{ color: "red" }}>
-          Password must be at least 8 characters
-        </div>
+        
 
         <label htmlFor="password">Password</label>
         <input id="password" type="password" />
+        <div role="alert" style={{ color: "red", marginBottom: "12px", fontSize: "14px", fontFamily: "serif" }}>
+          Password must be at least 8 characters
+        </div>
 
         <br />
 
