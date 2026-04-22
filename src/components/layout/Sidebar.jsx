@@ -18,10 +18,10 @@ export default function Sidebar() {
       style={{
         padding: "16px",
         background: "#f2f2f2",
-        minWidth: "200px",
+        minWidth: "100px",
       }}
     >
-      {/* ❌ Clickable div instead of semantic navigation elements */}
+      {/*  Clickable div instead of semantic navigation elements */}
       <div onClick={() => alert("Overview clicked")}>
         Overview
       </div>

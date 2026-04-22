@@ -1,58 +1,62 @@
-/**
- * UsersTable.jsx
+/** UserDetails.jsx
  *
  * ACCESSIBLE BY DESIGN:
- * - Uses semantic <table>, <thead>, <tbody>
- * - Search input has proper <label>
+ * - Clear page and section headings
+ * - Uses semantic <dl> for user data
+ * - Uses real <button> elements for actions
  *
  * INTENTIONAL A11Y ISSUES:
- * - Missing <caption> for the table
- * - <th> elements missing scope attribute
- * - Pagination uses clickable <span>
+ * - Modal has no focus trap
+ * - Focus does not return to trigger button
+ * - User status communicated only by color
  */
 
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import MainLayout from "../layout/MainLayout";
+import ConfirmModal from "../modal/ConfirmModal";
 
-export default function UsersTable() {
+export default function UserDetails() {
+  const { id } = useParams();
+
+  //  State controlling modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <>
-      {/* Properly labeled search */}
-      <label htmlFor="search">Search users:</label>
-      <input id="search" type="text" />
+    <MainLayout>
+      <h1>User details</h1>
+      <h2>User ID: {id}</h2>
 
-      <table border="1" style={{ marginTop: "16px", width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Status</th>
-          </tr>
-        </thead>
+      {/*  Semantic description list */}
+      <dl>
+        <dt>Name</dt>
+        <dd>John Doe</dd>
 
-        <tbody>
-          <tr>
-            <td>
-              <Link to="/users/1">John Doe</Link>
-            </td>
-            <td>john@example.com</td>
-            <td style={{ color: "green" }}>Active</td>
-          </tr>
+        <dt>Email</dt>
+        <dd>john@example.com</dd>
 
-          <tr>
-            <td>
-              <Link to="/users/2">Jane Smith</Link>
-            </td>
-            <td>jane@example.com</td>
-            <td style={{ color: "red" }}>Disabled</td>
-          </tr>
-        </tbody>
-      </table>
+        <dt>Status</dt>
+        {/*  Status conveyed only by color */}
+        <dd style={{ color: "green" }}>Active</dd>
+      </dl>
 
-      {/* Non-semantic pagination */}
-      <div style={{ marginTop: "12px" }}>
-        <span onClick={() => alert("Prev")}>Prev</span> |{" "}
-        <span onClick={() => alert("Next")}>Next</span>
+      {/*  Proper buttons */}
+      <div style={{ marginTop: "24px" }}>
+        <button>Reset password</button>
+
+        <button
+          style={{ marginLeft: "12px" }}
+          onClick={() => setIsModalOpen(true)}
+        >
+          Delete user
+        </button>
       </div>
-    </>
+
+      {/*  Modal rendered conditionally */}
+      <ConfirmModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </MainLayout>
   );
 }

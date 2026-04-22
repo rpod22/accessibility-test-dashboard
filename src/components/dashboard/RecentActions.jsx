@@ -8,7 +8,7 @@
 
 export default function RecentActions() {
   return (
-    <ul>
+    <ul className="recentActions">
       <li>User John updated profile</li>
       <li>Admin created new report</li>
       <li>Password reset requested</li>

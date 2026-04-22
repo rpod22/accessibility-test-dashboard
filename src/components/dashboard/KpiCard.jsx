@@ -12,6 +12,7 @@
 export default function KpiCard({ title, value }) {
   return (
     <div
+      className="kpi-card"
       onClick={() => alert(`${title} clicked`)}
       style={{
         border: "1px solid #ddd",

@@ -20,7 +20,7 @@ export default function Dashboard() {
     <MainLayout>
       <h1>User Analytics Dashboard</h1>
 
-      <section>
+      <section style={{padding: 10, border: "1px solid #ddd", marginBottom:10}}>
         <h2>Key metrics</h2>
 
         <div style={{ display: "flex", gap: "16px" }}>
@@ -30,12 +30,12 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <section>
+      <section style={{padding: 10, border: "1px solid #ddd", marginBottom: 10}}>
         <h2>Traffic overview</h2>
         <Chart />
       </section>
 
-      <section>
+      <section style={{padding: 10, border: "1px solid #ddd", marginBottom: 10}}>
         <h2>Recent actions</h2>
         <RecentActions />
       </section>
