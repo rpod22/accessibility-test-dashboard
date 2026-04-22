@@ -11,8 +11,13 @@
  * - One input relies on placeholder only
  * - Error message communicated only visually (color)
  */
+import { useState } from "react";
+import Toast from "../notifications/Toast";
 
 export default function SettingsForm() {
+  
+  const [toast, setToast] = useState("");
+
   return (
     <form>
       <fieldset>
@@ -43,7 +48,11 @@ export default function SettingsForm() {
         <input type="checkbox" /> Receive marketing emails
       </fieldset>
 
-      <button style={{ marginTop: "12px" }}>Save settings</button>
+      <button onClick={() => setToast("Settings saved")}>
+        Save settings
+      </button>
+
+      <Toast message={toast} />
     </form>
   );
 }
