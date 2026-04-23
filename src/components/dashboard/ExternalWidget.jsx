@@ -9,13 +9,15 @@
  * - Test handling of external / embedded content
  */
 
+let url = window.location.href;
+
 export default function ExternalWidget() {
   return (
     <section>
       <h2>External analytics provider</h2>
 
       <iframe
-        src="/fake-external-report.html"
+        src="https://example.com"
         width="60%"
         height="200"
         title="External analytics report"

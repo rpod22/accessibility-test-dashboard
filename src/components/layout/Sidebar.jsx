@@ -17,7 +17,6 @@ export default function Sidebar() {
       className="sidebar"
       style={{
         padding: "16px",
-        background: "#f2f2f2",
         minWidth: "100px",
       }}
     >

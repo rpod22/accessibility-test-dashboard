@@ -6,12 +6,19 @@ import ActivityTable from "../components/dashboard/ActivityTable";
 import LiveFilter from "../components/dashboard/LiveFilter";
 import ExternalWidget from "../components/dashboard/ExternalWidget";
 import ActionsDropdown from "../components/dashboard/ActionsDropdown";
+import { useState } from "react";
+import AnnouncementPopup from "../components/popup/AnnouncementPopup";
+
+
 
 export default function Dashboard() {
+
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
+
   return (
     <MainLayout>
       <h1>User Analytics Dashboard</h1>
-
+      
       <section>
         <h2>Key metrics</h2>
         <div style={{ display: "flex", gap: "16px" }}>
@@ -29,7 +36,12 @@ export default function Dashboard() {
 
       <section>
         <h2>Traffic overview</h2>
-        <Chart />
+        <div style={{display: "flex", flexDirection: "row", gap: "24px"}}>
+          <Chart />
+          <button style={{height: "60px"}} onClick={() => setShowAnnouncement(true)}>
+            Show important announcement
+          </button>
+        </div>
       </section>
       <hr />
 
@@ -54,6 +66,11 @@ export default function Dashboard() {
         <h2>Recent actions</h2>
         <RecentActions />
       </section>
+      
+      <AnnouncementPopup open={showAnnouncement}
+        onClose={() => setShowAnnouncement(false)}
+      />
+
     </MainLayout>
   );
 }

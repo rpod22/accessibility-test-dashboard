@@ -2,11 +2,18 @@
    GLOBAL STYLES
 ========================= */
 
-html, body {
+
+html, body, .content {
   margin: 0;
   padding: 0;
   font-family: Inter, Arial, sans-serif;
-  background-color: #ececee;
+  background: linear-gradient(
+    120deg,
+    #eef2f7 0%,
+    #ecf1fc 40%,
+    #90a1c0 100%
+  );
+
   color: #1f2933;
 }
 
@@ -44,7 +51,6 @@ a:hover {
 .content {
   flex: 1;
   padding: 32px;
-  background: #ffffff;
 }
 
 /* =========================
@@ -81,8 +87,8 @@ header a[style*="yellow"] {
 
 .sidebar {
   width: 150px;
-  background-color: #f0f1f3;
   padding: 24px;
+  background-color: #dadff1;
 }
 
 /*  Clickable divs have no
@@ -92,7 +98,7 @@ header a[style*="yellow"] {
   padding: 8px 4px;
   margin-bottom: 8px;
   cursor: pointer;
-  color: #444;
+  color: white;
 }
 
 .sidebar div:hover {
@@ -286,6 +292,38 @@ button:hover {
 .actionSubmit:hover {
   background-color: #357bd8;
 }
+
+/* =========================
+   POP-UP / ANNOUNCEMENT
+========================= */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  width: 420px;
+  padding: 24px;
+  margin: 120px auto;
+  border-radius: 6px;
+}
+
+/*  Visual only, no focus styles */
+.popup-close {
+  margin-top: 16px;
+  color: #4a90e2;
+  cursor: pointer;
+  text-align: right;
+}
+
+.popup-close:hover {
+  text-decoration: underline;
+}
+
 /* =========================
    FOOTER
 ========================= */
